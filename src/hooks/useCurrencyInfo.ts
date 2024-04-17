@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useCurrencyInfo(currency: string): object {
+function useCurrencyInfo(currency: string): Record<string, number> {
     const [data, setData] = useState({});
 
     useEffect(() => {

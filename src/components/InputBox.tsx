@@ -3,26 +3,26 @@ import { useId } from "react";
 type props = {
     label: string;
     amount: number;
-    className: string;
     onAmountChange: (amount: number) => void;
     onCurrencyChange: (currency: string) => void;
     currencyOptions: Array<string>;
     selectCurrency: string;
+    isDisabled?: boolean;
 };
 
 function InputBox({
     label,
     amount,
-    className = " ",
     onAmountChange,
     onCurrencyChange,
     currencyOptions = [],
-    selectCurrency = "inr"
+    selectCurrency = "inr",
+    isDisabled = false
 }: props) {
     const amountInputId = useId();
 
     return (
-        <div className={`bg-white flex rounded-lg text-sm p-3 ${className}`}>
+        <div className='bg-white flex rounded-lg text-sm p-3'>
             <div className='w-1/2'>
                 <label
                     htmlFor={amountInputId}
@@ -35,6 +35,7 @@ function InputBox({
                     type="number"
                     placeholder='Amount'
                     value={amount}
+                    disabled={isDisabled}
                     onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
                 />
             </div>
