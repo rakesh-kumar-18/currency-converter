@@ -26,7 +26,10 @@ function App() {
       <div className='w-full h-screen bg-main-bg flex justify-center items-center bg-cover bg-no-repeat'>
 
         <div className='w-full max-w-md border bg-gray-60 p-5 rounded-lg bg-white/30'>
-          <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            onConvert();
+          }}>
 
             <div className='mb-1'>
               <InputBox
@@ -59,7 +62,7 @@ function App() {
 
             <button
               className='bg-blue-600 w-full text-white py-3 rounded-lg'
-              onClick={onConvert}>Convert {from.toUpperCase()} to {to.toUpperCase()}</button>
+            >Convert {from.toUpperCase()} to {to.toUpperCase()}</button>
           </form>
         </div>
       </div >
